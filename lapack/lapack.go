@@ -41,6 +41,37 @@ type Float64 interface {
 	Dtrtrs(uplo blas.Uplo, trans blas.Transpose, diag blas.Diag, n, nrhs int, a []float64, lda int, b []float64, ldb int) (ok bool)
 }
 
+type Float32 interface {
+	// Dgecon(norm MatrixNorm, n int, a []float64, lda int, anorm float64, work []float64, iwork []int) float64
+	// Dgeev(jobvl LeftEVJob, jobvr RightEVJob, n int, a []float64, lda int, wr, wi []float64, vl []float64, ldvl int, vr []float64, ldvr int, work []float64, lwork int) (first int)
+	// Dgels(trans blas.Transpose, m, n, nrhs int, a []float64, lda int, b []float64, ldb int, work []float64, lwork int) bool
+	// Dgelqf(m, n int, a []float64, lda int, tau, work []float64, lwork int)
+	// Dgeqrf(m, n int, a []float64, lda int, tau, work []float64, lwork int)
+	// Dgesvd(jobU, jobVT SVDJob, m, n int, a []float64, lda int, s, u []float64, ldu int, vt []float64, ldvt int, work []float64, lwork int) (ok bool)
+	// Dgetrf(m, n int, a []float64, lda int, ipiv []int) (ok bool)
+	// Dgetri(n int, a []float64, lda int, ipiv []int, work []float64, lwork int) (ok bool)
+	// Dgetrs(trans blas.Transpose, n, nrhs int, a []float64, lda int, ipiv []int, b []float64, ldb int)
+	// Dggsvd3(jobU, jobV, jobQ GSVDJob, m, n, p int, a []float64, lda int, b []float64, ldb int, alpha, beta, u []float64, ldu int, v []float64, ldv int, q []float64, ldq int, work []float64, lwork int, iwork []int) (k, l int, ok bool)
+	// Dlantr(norm MatrixNorm, uplo blas.Uplo, diag blas.Diag, m, n int, a []float64, lda int, work []float64) float64
+	// Dlange(norm MatrixNorm, m, n int, a []float64, lda int, work []float64) float64
+	Dlansy(norm MatrixNorm, uplo blas.Uplo, n int, a []float32, lda int, work []float32) float32
+	// Dlapmt(forward bool, m, n int, x []float64, ldx int, k []int)
+	// Dormqr(side blas.Side, trans blas.Transpose, m, n, k int, a []float64, lda int, tau, c []float64, ldc int, work []float64, lwork int)
+	// Dormlq(side blas.Side, trans blas.Transpose, m, n, k int, a []float64, lda int, tau, c []float64, ldc int, work []float64, lwork int)
+	// Dpbcon(uplo blas.Uplo, n, kd int, ab []float64, ldab int, anorm float64, work []float64, iwork []int) float64
+	// Dpbtrf(uplo blas.Uplo, n, kd int, ab []float64, ldab int) (ok bool)
+	// Dpbtrs(uplo blas.Uplo, n, kd, nrhs int, ab []float64, ldab int, b []float64, ldb int)
+	// Dpocon(uplo blas.Uplo, n int, a []float64, lda int, anorm float64, work []float64, iwork []int) float64
+	// Dpotrf(ul blas.Uplo, n int, a []float64, lda int) (ok bool)
+	// Dpotri(ul blas.Uplo, n int, a []float64, lda int) (ok bool)
+	// Dpotrs(ul blas.Uplo, n, nrhs int, a []float64, lda int, b []float64, ldb int)
+	// Dsyev(jobz EVJob, uplo blas.Uplo, n int, a []float64, lda int, w, work []float64, lwork int) (ok bool)
+	// Dtbtrs(uplo blas.Uplo, trans blas.Transpose, diag blas.Diag, n, kd, nrhs int, a []float64, lda int, b []float64, ldb int) (ok bool)
+	// Dtrcon(norm MatrixNorm, uplo blas.Uplo, diag blas.Diag, n int, a []float64, lda int, work []float64, iwork []int) float64
+	// Dtrtri(uplo blas.Uplo, diag blas.Diag, n int, a []float64, lda int) (ok bool)
+	// Dtrtrs(uplo blas.Uplo, trans blas.Transpose, diag blas.Diag, n, nrhs int, a []float64, lda int, b []float64, ldb int) (ok bool)
+}
+
 // Direct specifies the direction of the multiplication for the Householder matrix.
 type Direct byte
 
